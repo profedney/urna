@@ -1,7 +1,3 @@
-Aqui está o README que você pode usar no seu repositório:
-
----
-
 # Urna Eletrônica Simples 🗳️
 
 Bem-vindo à minha urna eletrônica didática! 🎉 Este projeto foi criado para fins educativos e demonstra como construir uma urna eletrônica básica usando PHP e MySQL. Se você está aprendendo sobre programação web ou quer brincar com simulações de eleições, você está no lugar certo! 😎

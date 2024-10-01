@@ -17,7 +17,7 @@ git clone https://github.com/profedney/urna.git
 ### 2. Configurando o banco de dados MySQL 💾
 
 1. Abra o **phpMyAdmin** (ou sua ferramenta favorita para gerenciar MySQL).
-2. Crie um banco de dados chamado `urna_eletronica`. 📦
+2. Crie um banco de dados chamado `eleicao`. 📦
 3. Importe o arquivo `urna.sql` localizado na pasta `/banco` para dentro do seu novo banco de dados. 💥
    - No **phpMyAdmin**, vá até a aba **Importar**, selecione o arquivo `urna.sql`, e clique em **Executar**.
    
@@ -30,14 +30,27 @@ Pronto! O banco de dados está criado e suas tabelas estão prontas para receber
 
 ### 4. Ajustando a conexão com o banco de dados 🔌
 
-- No arquivo `conexao.php`, ajuste as variáveis para refletirem suas configurações de banco de dados, como o nome do banco (`urna_eletronica`), usuário, senha, etc.
+- No arquivo `conexao.php`, as configurações já estão definidas da seguinte forma:
 
 ```php
-define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'root');  // ou seu usuário
-define('DB_PASSWORD', '');  // ou sua senha
-define('DB_DATABASE', 'urna_eletronica');
+<?php
+// Configurações do banco de dados
+$host = 'localhost'; // Nome do host
+$dbname = 'eleicao'; // Nome do banco de dados
+$username = 'root'; // Nome de usuário do banco de dados
+$password = ''; // Senha do banco de dados
+
+// Criar conexão com o banco de dados
+$conn = mysqli_connect($host, $username, $password, $dbname);
+
+// Verificar a conexão
+if (!$conn) {
+    die("Conexão falhou: " . mysqli_connect_error());
+}
+?>
 ```
+
+Verifique se esses dados estão corretos para o seu ambiente local. Caso necessário, modifique o nome do banco de dados, usuário ou senha para coincidir com as configurações do seu sistema.
 
 ### 5. Testando a urna 🖥️
 

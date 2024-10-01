@@ -4,7 +4,7 @@ Bem-vindo à minha urna eletrônica didática! 🎉 Este projeto foi criado para
 
 ## Do que se trata?
 
-Esta urna eletrônica permite que você simule uma votação com cinco candidatos. Você pode escolher seu candidato preferido, votar em branco ou anular o voto. No fim, temos uma página de apuração que mostra o total de votos para cada candidato. 🗳️✨
+Esta urna eletrônica permite que você simule uma votação com cinco candidatos. Você pode ajustar para seu projeto, adicionando candidadtos ou excluindo. Pode ser usada para pesquisa de intenção de votos. Use a imaginação.  Você pode escolher seu candidato preferido, votar em branco ou anular o voto. No fim, temos uma página de apuração que mostra o total de votos para cada candidato. 🗳️✨. Lembre-se é uma urna simples didática, não recomendo para produção, questoes de autenticação e segurança devem ser implementadas, bem como aquele design front end lindo de morrer que só você sabe fazer.
 
 ## Como instalar? 🤔
 

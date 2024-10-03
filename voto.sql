@@ -27,32 +27,11 @@ SET time_zone = "+00:00";
 -- Estrutura para tabela `voto`
 --
 
-CREATE TABLE `voto` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `voto` (
+  `id` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `candidato` varchar(50) DEFAULT NULL,
-  `data_voto` timestamp NOT NULL DEFAULT current_timestamp()
+  `criado_em` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Índices para tabelas despejadas
---
-
---
--- Índices de tabela `voto`
---
-ALTER TABLE `voto`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT para tabelas despejadas
---
-
---
--- AUTO_INCREMENT de tabela `voto`
---
-ALTER TABLE `voto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

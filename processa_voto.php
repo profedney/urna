@@ -8,19 +8,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Inserir o voto no banco de dados
     $sql = "INSERT INTO voto (candidato) VALUES ('$candidato')";
 
-    if (mysqli_query($conn, $sql)) {
-        echo "Voto registrado com sucesso!";
-    } else {
-        echo "Erro ao registrar o voto: " . mysqli_error($conn);
+    if (!mysqli_query($conn, $sql)) {
+        die("Erro ao registrar o voto: " . mysqli_error($conn));
     }
 
     // Fechar a conexão
     mysqli_close($conn);
 
     // Redirecionar de volta à página principal ou exibir mensagem
-    header("Location: index.php");
+    header("Location: index.php?status=success");
     exit();
 } else {
     echo "Método de solicitação inválido.";
 }
-?>

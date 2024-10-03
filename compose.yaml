@@ -1,0 +1,37 @@
+services:
+
+  php-httpd:
+    build:
+      context: .
+      dockerfile: ./docker/php-httpd/Dockerfile
+    container_name: app-php-httpd
+    working_dir: /var/www/html
+    volumes:
+      - ".:/var/www/html"
+    environment:
+      - APACHE_RUN_USER=www-data
+      - APACHE_DOCUMENT_ROOT=/var/www/html
+      - DB_HOST=mysql
+      - DB_DATABASE=eleicao
+      - DB_USER=admin
+      - DB_PASSWORD=123456789
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    ports:
+      - 80:80
+
+  mysql:
+    image: mysql:9.0.1
+    container_name: app-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456789
+      - MYSQL_DATABASE=eleicao
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=123456789
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./voto.sql:/docker-entrypoint-initdb.d/init_db.sql
+
+volumes:
+  mysql_data:
+    driver: local

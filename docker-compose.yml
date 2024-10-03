@@ -1,0 +1,21 @@
+services:
+  php:
+    container_name: app-urna
+    build:
+      context: .
+      dockerfile: /docker/app/Dockerfile
+    ports:
+      - 80:80
+    volumes:
+      - ./app:/var/www/html/urna
+
+  mariadb:
+    image: mariadb:11.2
+    volumes:
+      - ./docker/mariadb:/var/lib/mysql:Z
+      - ./app/voto.sql:/docker-entrypoint-initdb.d/voto.sql
+    ports:
+      - "3306:3306"
+    environment:
+      MARIADB_DATABASE: "eleicao"
+      MARIADB_ROOT_PASSWORD: "admin"
